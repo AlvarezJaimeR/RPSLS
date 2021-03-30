@@ -1,5 +1,7 @@
 "use strict"
 const Player = require('./player');
+const Human = require('./human');
+const AI = require('./ai');
 const prompt = require('prompt-sync')();
 
 class Game {
@@ -15,8 +17,23 @@ class Game {
 
     runGame(){ //"main"
         this.displayRules();
+        this.playerOne = new Human(this.userName());
+        console.log(this.playerOne.name);
         let opponent = this.pickOpponent();
-        
+        console.log(opponent);
+    }
+
+    userName(){
+        console.log('What is your name?');
+        let userName = prompt();
+        let test = false;
+        while(test === false){
+            test = this.userValidation(userName, 'Please input a name');
+            console.log(test);
+            if (test === false){
+                userName = prompt();
+            }
+        }return userName;
     }
 
     displayRules(){
@@ -30,7 +47,7 @@ class Game {
         let userOpponentChoice = prompt().toLowerCase();
         let test = false;
         while (test === false){
-            test = this.userOpponentValidation(userOpponentChoice);
+            test = this.userValidation(userOpponentChoice, 'Please choose between human or AI');
             console.log(test);
             if (test === false){
                 userOpponentChoice = prompt().toLowerCase();
@@ -42,7 +59,7 @@ class Game {
         switch (userOpponentChoice){
             case 'human':
                 console.log('You picked your opponent to be another human. Please enter their name.');
-                this.playerTwo = new Player(prompt());
+                this.playerTwo = new Human(prompt());
                 console.log(this.playerTwo.name);
                 break;
             case 'ai':
@@ -56,17 +73,17 @@ class Game {
     }
 
     //Check if the user input is all characters
-    userOpponentValidation(userOppChoice){
+    userValidation(userOppChoice, validationMessage){
         var letterCheck = /^[A-Za-z]+$/;
         if (userOppChoice==null || userOppChoice=="")
         {
-            console.log('Please input your choice of human or AI');
+            console.log(validationMessage);
             return false;
         }
         else if (!userOppChoice.match(letterCheck))
         {
             console.log("Choice must contain letters only!");
-            console.log('Please choose between human or AI');
+            console.log(validationMessage);
             return false;
         }
         else {
