@@ -1,5 +1,5 @@
 {
-  "name": "Day13RPSLS",
+  "name": "day13rpsls",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/AlvarezJaimeR/RPSLS/issues"
   },
-  "homepage": "https://github.com/AlvarezJaimeR/RPSLS#readme"
+  "homepage": "https://github.com/AlvarezJaimeR/RPSLS#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }
