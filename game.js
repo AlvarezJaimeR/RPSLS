@@ -4,12 +4,19 @@ const prompt = require('prompt-sync')();
 
 class Game {
     constructor(){
+        this.gesture = [];
 
+        this.gesture.push('rock');
+        this.gesture.push('paper');
+        this.gesture.push('scissors');
+        this.gesture.push('lizard');
+        this.gesture.push('spock');
     }
 
     runGame(){ //"main"
         this.displayRules();
-        this.pickOpponent();
+        let opponent = this.pickOpponent();
+        
     }
 
     displayRules(){
@@ -35,9 +42,8 @@ class Game {
         switch (userOpponentChoice){
             case 'human':
                 console.log('You picked your opponent to be another human. Please enter their name.');
-                let playerTwoName = prompt();
-                this.playerTwo = new Player(playerTwoName);
-                console.log(playerTwo.name);
+                this.playerTwo = new Player(prompt());
+                console.log(this.playerTwo.name);
                 break;
             case 'ai':
                 console.log('You picked your opponent to be an AI. Good luck!');
