@@ -16,6 +16,8 @@ class Game {
         console.log(this.playerOne.name);
         this.pickOpponent();
         console.log(this.playerTwo);
+
+        while (this.playerOne.score < 3 && this.playerTwo.score < 3){
         let playerOneGesture = this.playerOne.chooseGesture();
         console.log(this.playerOne.name + ' has picked ' + playerOneGesture + '!');
         let playerTwoGesture = this.playerTwo.chooseGesture();
@@ -23,6 +25,9 @@ class Game {
         this.gestureRules(playerOneGesture, playerTwoGesture);
         console.log('After this round ' + this.playerOne.name + "'s current score:" + this.playerOne.score 
                         + ' & ' + this.playerTwo.name + "'s current score:" + this.playerTwo.score);
+        }
+
+        this.displayGameWinner();
     }
 
     userName(){
@@ -41,7 +46,7 @@ class Game {
     displayRules(){
         console.log("Welcome to Rock Paper Scissors Lizard Spock!");
         console.log('Best of three will decide the winner.');
-        console.log('You may decide to vs another human or AI.');
+        console.log('You may decide to vs another human or an AI.');
     }
 
     pickOpponent(){
@@ -174,6 +179,15 @@ class Game {
                 }
         }
 
+    }
+
+    displayGameWinner(){
+        if (this.playerOne.score > this.playerTwo.score){
+            console.log(this.playerOne.name + ' is the winner of this game!');
+        }
+        else {
+            console.log(this.playerTwo.name + ' wins this game!');
+        }
     }
 }
 
