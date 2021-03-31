@@ -13,9 +13,8 @@ class Game {
     runGame(){ //"main"
         this.displayRules();
         this.playerOne = new Human(this.userName());
-        console.log(this.playerOne.name);
         this.pickOpponent();
-        console.log(this.playerTwo);
+        let round = 1;
 
         while (this.playerOne.score < 3 && this.playerTwo.score < 3){
         let playerOneGesture = this.playerOne.chooseGesture();
@@ -23,8 +22,9 @@ class Game {
         let playerTwoGesture = this.playerTwo.chooseGesture();
         console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture + '!');
         this.gestureRules(playerOneGesture, playerTwoGesture);
-        console.log('After this round ' + this.playerOne.name + "'s current score:" + this.playerOne.score 
+        console.log('After round ' + round + ' ' + this.playerOne.name + "'s current score:" + this.playerOne.score 
                         + ' & ' + this.playerTwo.name + "'s current score:" + this.playerTwo.score);
+        round ++;
         }
 
         this.displayGameWinner();
@@ -36,7 +36,6 @@ class Game {
         let test = false;
         while(test === false){
             test = this.userValidation(userName, 'Please input a name');
-            console.log(test);
             if (test === false){
                 userName = prompt();
             }
@@ -55,7 +54,6 @@ class Game {
         let test = false;
         while (test === false){
             test = this.userValidation(userOpponentChoice, 'Please choose between human or AI');
-            console.log(test);
             if (test === false){
                 userOpponentChoice = prompt().toLowerCase();
             }
@@ -67,12 +65,10 @@ class Game {
             case 'human':
                 console.log('You picked your opponent to be another human. Please enter their name.');
                 this.playerTwo = new Human(prompt());
-                console.log(this.playerTwo.name);
                 break;
             case 'ai':
                 console.log('You picked your opponent to be an AI. Good luck!');
                 this.playerTwo = new AI('AI');
-                console.log(this.playerTwo.name);
                 break;
             default: {
                 console.log('Pick human or Ai.');

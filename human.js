@@ -8,7 +8,7 @@ class Human extends Player{
     }
 
     chooseGesture(){
-        console.log('Pick a gesture: 1 - Rock, 2 - Paper, 3 - Scissors, 4 - Lizard, or 5 - Spock');
+        console.log(this.name + ' please pick a gesture: 1 - Rock, 2 - Paper, 3 - Scissors, 4 - Lizard, or 5 - Spock');
         let check = false;
         let gesturePick = parseInt(prompt()); 
         while (check == false){
@@ -17,7 +17,7 @@ class Human extends Player{
                 check = true;
             }
             if (check == false || gesturePick > 5 || gesturePick == 0){
-                console.log('Please pick a gesture: 1 - Rock, 2 - Paper, 3 - Scissors, 4 - Lizard, or 5 - Spock');
+                console.log(this.name + ' please pick a gesture: 1 - Rock, 2 - Paper, 3 - Scissors, 4 - Lizard, or 5 - Spock');
                 gesturePick = prompt();
                 check = false;
             }
