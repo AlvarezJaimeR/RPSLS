@@ -1,9 +1,42 @@
 "use strict"
-class Human {
-    constructor(name){
-        this.score = 0;
-        this.name = name;
+const Player = require('./player');
+const prompt = require('prompt-sync')();
+
+class Human extends Player{
+    constructor (name){
+        super(name); 
+    }
+
+    chooseGesture(){
+        console.log('Pick a gesture: 1 - Rock, 2 - Paper, 3 - Scissors, 4 - Lizard, or 5 - Spock');
+        let check = false;
+        let gesturePick = parseInt(prompt()); 
+        while (check == false){
+            check = this.isInt(gesturePick);
+            if (check == true && gesturePick <= 5){
+                check = true;
+            }
+            if (check == false || gesturePick > 5 || gesturePick == 0){
+                console.log('Please pick a gesture: 1 - Rock, 2 - Paper, 3 - Scissors, 4 - Lizard, or 5 - Spock');
+                gesturePick = prompt();
+                check = false;
+            }
+        }
+        let humanGesture = this.gestures[gesturePick-1];
+        console.log(humanGesture);
+    }
+
+    //Check if the user input is all characters
+    isInt(userNumberChoice){
+        let numberCheck = /^-?[0-9]+$/;
+        let intCheck = numberCheck.test(userNumberChoice);
+        if (intCheck == true){
+            return true;
+        }
+        else{
+            console.log('Please enter a number.');
+            return false;
+        }
     }
 }
-
 module.exports = Human;

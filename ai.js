@@ -1,8 +1,9 @@
 "use strict"
-class AI {
+const Player = require('./player');
+
+class AI extends Player{
     constructor(name){
-        this.score = 0;
-        this.name = name;
+    super(name);
     }
 }
 
