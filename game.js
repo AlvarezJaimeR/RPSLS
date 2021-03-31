@@ -8,14 +8,6 @@ class Game {
     constructor(){
         this.playerOne;
         this.playerTwo;
-
-        this.gesture = [];
-
-        this.gesture.push('rock');
-        this.gesture.push('paper');
-        this.gesture.push('scissors');
-        this.gesture.push('lizard');
-        this.gesture.push('spock');
     }
 
     runGame(){ //"main"
@@ -28,6 +20,7 @@ class Game {
         console.log(this.playerOne.name + ' has picked ' + playerOneGesture + '!');
         let playerTwoGesture = this.playerTwo.chooseGesture();
         console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture + '!');
+        this.gestureRules(playerOneGesture, playerTwoGesture);
     }
 
     userName(){
@@ -98,6 +91,37 @@ class Game {
         else {
             return true;
         }
+    }
+
+    gestureRules(gesturePlayerOne, gesturePlayerTwo){
+        switch (gesturePlayerOne){
+            case 'rock':
+                if (gesturePlayerTwo == 'scissors'){
+                    console.log(this.playerOne.name + ' crushes ' + this.playerTwo.name);
+                    this.playerOne.score ++;
+                }
+                if (gesturePlayerTwo == 'paper'){
+                    console.log(this.playerTwo.name + ' covers ' + this.playerOne.name);
+                    this.playerTwo.score ++;
+                }
+                if (gesturePlayerTwo == 'lizard'){
+                    console.log(this.playerOne.name + ' crushes ' + this.playerTwo.name);
+                    this.playerOne.score ++;
+                }
+                if (gesturePlayerTwo == 'spock'){
+                    console.log(this.playerTwo.name + ' vaproizes ' + this.playerOne.name);
+                    this.playerTwo.score ++;
+                }
+            case 'paper':
+
+            case 'scissors':
+
+            case 'lizard':
+
+            case 'spock':
+            
+        }
+
     }
 }
 
