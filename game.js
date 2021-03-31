@@ -21,6 +21,8 @@ class Game {
         let playerTwoGesture = this.playerTwo.chooseGesture();
         console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture + '!');
         this.gestureRules(playerOneGesture, playerTwoGesture);
+        console.log('After this round ' + this.playerOne.name + "'s current score:" + this.playerOne.score 
+                        + ' & ' + this.playerTwo.name + "'s current score:" + this.playerTwo.score);
     }
 
     userName(){
@@ -96,30 +98,80 @@ class Game {
     gestureRules(gesturePlayerOne, gesturePlayerTwo){
         switch (gesturePlayerOne){
             case 'rock':
-                if (gesturePlayerTwo == 'scissors'){
-                    console.log(this.playerOne.name + ' crushes ' + this.playerTwo.name);
+                if (gesturePlayerTwo === 'scissors' || gesturePlayerTwo === 'lizard'){
+                    console.log(this.playerOne.name + ' wins this round!');
                     this.playerOne.score ++;
+                    return this.playerOne.score;
                 }
-                if (gesturePlayerTwo == 'paper'){
-                    console.log(this.playerTwo.name + ' covers ' + this.playerOne.name);
+                else if (gesturePlayerTwo === 'paper' || gesturePlayerTwo === 'spock'){
+                    console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
                     this.playerTwo.score ++;
+                    return this.playerTwo.score;
                 }
-                if (gesturePlayerTwo == 'lizard'){
-                    console.log(this.playerOne.name + ' crushes ' + this.playerTwo.name);
-                    this.playerOne.score ++;
-                }
-                if (gesturePlayerTwo == 'spock'){
-                    console.log(this.playerTwo.name + ' vaproizes ' + this.playerOne.name);
-                    this.playerTwo.score ++;
+                else {
+                    console.log('This round was a tie!');
+                    break;
                 }
             case 'paper':
-
+                if (gesturePlayerTwo === 'rock' || gesturePlayerTwo === 'spock'){
+                    console.log(this.playerOne.name + ' wins this round!');
+                    this.playerOne.score ++;
+                    return this.playerOne.score;
+                }
+                else if (gesturePlayerTwo === 'scissors' || gesturePlayerTwo === 'lizard'){
+                    console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
+                    this.playerTwo.score ++;
+                    return this.playerTwo.score;
+                }
+                else {
+                    console.log('This round was a tie!');
+                    break;
+                }
             case 'scissors':
-
+                if (gesturePlayerTwo === 'paper' || gesturePlayerTwo === 'lizard'){
+                    console.log(this.playerOne.name + ' wins this round!');
+                    this.playerOne.score ++;
+                    return this.playerOne.score;
+                }
+                else if (gesturePlayerTwo === 'rock' || gesturePlayerTwo === 'spock'){
+                    console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
+                    this.playerTwo.score ++;
+                    return this.playerTwo.score;
+                }
+                else {
+                    console.log('This round was a tie!');
+                    break;
+                }
             case 'lizard':
-
+                if (gesturePlayerTwo === 'spock' || gesturePlayerTwo === 'paper'){
+                    console.log(this.playerOne.name + ' wins this round!');
+                    this.playerOne.score ++;
+                    return this.playerOne.score;
+                }
+                else if (gesturePlayerTwo === 'rock' || gesturePlayerTwo === 'scissors'){
+                    console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
+                    this.playerTwo.score ++;
+                    return this.playerTwo.score;
+                }
+                else {
+                    console.log('This round was a tie!');
+                    break;
+                }
             case 'spock':
-            
+                if (gesturePlayerTwo === 'scissors' || gesturePlayerTwo === 'rock'){
+                    console.log(this.playerOne.name + ' wins this round!');
+                    this.playerOne.score ++;
+                    return this.playerOne.score;
+                }
+                else if (gesturePlayerTwo === 'lizard' || gesturePlayerTwo === 'paper'){
+                    console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
+                    this.playerTwo.score ++;
+                    return this.playerTwo.score;
+                }
+                else {
+                    console.log('This round was a tie!');
+                    break;
+                }
         }
 
     }
