@@ -24,9 +24,10 @@ class Human extends Player{
         }
         let humanGesture = this.gestures[gesturePick-1];
         console.log(humanGesture);
+        return humanGesture;
     }
 
-    //Check if the user input is all characters
+    //Check if the user input is all integers
     isInt(userNumberChoice){
         let numberCheck = /^-?[0-9]+$/;
         let intCheck = numberCheck.test(userNumberChoice);
@@ -39,4 +40,5 @@ class Human extends Player{
         }
     }
 }
+
 module.exports = Human;

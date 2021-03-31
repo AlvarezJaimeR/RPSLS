@@ -25,6 +25,9 @@ class Game {
         this.pickOpponent();
         console.log(this.playerTwo);
         let playerOneGesture = this.playerOne.chooseGesture();
+        console.log(this.playerOne.name + ' has picked ' + playerOneGesture + '!');
+        let playerTwoGesture = this.playerTwo.chooseGesture();
+        console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture + '!');
     }
 
     userName(){

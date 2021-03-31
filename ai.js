@@ -5,6 +5,10 @@ class AI extends Player{
     constructor(name){
     super(name);
     }
+
+    chooseGesture(){
+        return this.gestures[Math.floor(Math.random()*this.gestures.length)];
+    }
 }
 
 module.exports = AI;
