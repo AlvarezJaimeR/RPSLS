@@ -1,20 +1,12 @@
 "use strict"
-//const Player = require('./player');
 const Human = require('./human');
 const AI = require('./ai');
 const prompt = require('prompt-sync')();
-const Gesture = require('./gesture');
-const Rock = require('./gesture');
-const Paper = require('./gesture');
-const Scissors = require('./gesture');
-const Lizard = require('./gesture');
-const Spock = require('./gesture');
 
 class Game {
     constructor(){
         this.playerOne;
         this.playerTwo;
-
     }
 
     runGame(){ //"main"
@@ -105,7 +97,6 @@ class Game {
 
     gestureRules(gesturePlayerOne, gesturePlayerTwo){
         let result = gesturePlayerOne.compare(gesturePlayerTwo);
-        //console.log(result);
         this.pointToTheWinner(result);
     }
 

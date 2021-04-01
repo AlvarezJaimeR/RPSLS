@@ -23,7 +23,7 @@ class Human extends Player{
             }
         }
         let humanGesture = this.gestures[gesturePick-1];
-        console.log(humanGesture.name);
+        //console.log(humanGesture.name);
         return humanGesture;
     }
 
