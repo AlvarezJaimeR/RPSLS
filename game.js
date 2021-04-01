@@ -43,7 +43,7 @@ class Game {
 
     displayRules(){
         console.log("Welcome to Rock Paper Scissors Lizard Spock!");
-        console.log('Best of three will decide the winner.');
+        console.log('Win three rounds to win the game!');
         console.log('You may decide to vs another human or an AI.');
     }
 
