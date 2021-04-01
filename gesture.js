@@ -12,11 +12,9 @@ class Rock extends Gesture{
 
     compare(gesturePlayerTwo){
         if (gesturePlayerTwo.name === 'scissors' || gesturePlayerTwo.name === 'lizard'){
-            console.log(this.playerOne.name + ' wins this round!');
             return 1;
         }
         else if (gesturePlayerTwo.name === 'paper' || gesturePlayerTwo.name === 'spock'){
-            console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
             return -1;
         }
         else {

@@ -5,7 +5,7 @@ class Player {
     constructor(name){
         this.score = 0;
         this.name = name;
-        this.gestures = [Rock("rock"), Paper("paper"), Scissors('scissors'), Lizard('lizard'), Spock('spock')];
+        this.gestures = [new Rock("rock"), new Paper("paper"), new Scissors('scissors'), new Lizard('lizard'), new Spock('spock')];
     }
 }
 

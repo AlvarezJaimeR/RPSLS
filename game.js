@@ -25,9 +25,9 @@ class Game {
 
         while (this.playerOne.score < 3 && this.playerTwo.score < 3){
         let playerOneGesture = this.playerOne.chooseGesture();
-        console.log(this.playerOne.name + ' has picked ' + playerOneGesture + '!');
+        console.log(this.playerOne.name + ' has picked ' + playerOneGesture.name + '!');
         let playerTwoGesture = this.playerTwo.chooseGesture();
-        console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture + '!');
+        console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture.name + '!');
         this.gestureRules(playerOneGesture, playerTwoGesture);
         console.log('After round ' + round + ' ' + this.playerOne.name + "'s current score:" + this.playerOne.score 
                         + ' & ' + this.playerTwo.name + "'s current score:" + this.playerTwo.score);
@@ -104,10 +104,20 @@ class Game {
     }
 
     gestureRules(gesturePlayerOne, gesturePlayerTwo){
-        let player1Gesture = this.playerOne.chooseGesture();
-        let player2Gesture = this.playerTwo.chooseGesture();
-        let result = player1Gesture.compare(player2Gesture);
+        let result = gesturePlayerOne.compare(gesturePlayerTwo);
+        //console.log(result);
+        this.pointToTheWinner(result);
+    }
 
+    pointToTheWinner(result){
+        if(result == 1){
+            console.log(this.playerOne.name + ' wins this round!');
+            this.playerOne.score ++;
+        }
+        else if (result == -1){
+            console.log(this.playerTwo.name + ' beat ' + this.playerOne.name + ' this round!');
+            this.playerTwo.score ++;
+        }
     }
 
     displayGameWinner(){
