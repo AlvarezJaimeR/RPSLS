@@ -11,4 +11,4 @@ class AI extends Player{
     }
 }
 
-module.exports = AI;
+module.exports.AI = AI;
