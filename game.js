@@ -20,7 +20,8 @@ class Game {
         console.log(this.playerOne.name + ' has picked ' + playerOneGesture.name + '!');
         let playerTwoGesture = this.playerTwo.chooseGesture();
         console.log(this.playerTwo.name + ' has picked ' + playerTwoGesture.name + '!');
-        this.gestureRules(playerOneGesture, playerTwoGesture);
+        let result = this.gestureRules(playerOneGesture, playerTwoGesture);
+        this.pointToTheWinner(result);
         console.log('After round ' + round + ' ' + this.playerOne.name + "'s current score:" + this.playerOne.score 
                         + ' & ' + this.playerTwo.name + "'s current score:" + this.playerTwo.score);
         round ++;
@@ -97,7 +98,7 @@ class Game {
 
     gestureRules(gesturePlayerOne, gesturePlayerTwo){
         let result = gesturePlayerOne.compare(gesturePlayerTwo);
-        this.pointToTheWinner(result);
+        return result;
     }
 
     pointToTheWinner(result){
